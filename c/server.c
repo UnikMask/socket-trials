@@ -53,10 +53,9 @@ int main() {
 	printf("%s\n", buffer);
 	const char *hello = "Hello brother!";
 	err = send(new_socket, hello, strlen(hello), 0);
-	if (err) {
+	if (err < 0) {
 		perror("Issue sending message to client");
 	}
-
 	close(new_socket);
 	close(sockfd);
 	exit(EXIT_SUCCESS);
